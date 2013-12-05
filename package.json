@@ -1,0 +1,12 @@
+{
+  "name": "NagaGrunt",
+  "version": "0.1.0",
+  "author": "Steve Barnett",
+  "private": true,
+  "devDependencies": {
+    "grunt": "~0.4.0",
+    "matchdep": "~0.3.0",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-contrib-jshint": "~0.7.2"
+  }
+}
