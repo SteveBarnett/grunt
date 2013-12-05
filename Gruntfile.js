@@ -7,12 +7,18 @@ module.exports = function(grunt){
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     watch: {
-      css: {
+      sass: {
         files: [
           'sass/*.sass',
           'sass/*.scss'
         ],
         tasks: ['compass']
+      },
+      css: {
+        files: [
+          'css/*.css'
+        ],
+        tasks: ['csslint']
       },
       js: {
         files: [
@@ -36,6 +42,17 @@ module.exports = function(grunt){
         jshintrc: '.jshintrc'
       },
       all: ['Gruntfile.js', 'js/*.js']
+    },
+    csslint: {
+      options: {
+        csslintrc: '.csslintrc'
+      },
+      strict: {
+        options: {
+          import: 2
+        },
+        src: ['css/*.css']
+      }
     }
   });
 
