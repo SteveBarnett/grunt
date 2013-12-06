@@ -26,6 +26,12 @@ module.exports = function(grunt){
           'Gruntfile.js'
         ],
         tasks: ['jshint']
+      },
+      html: {
+        files: [
+          '*.html'
+        ],
+        tasks: ['lint5']
       }
     },
     compass: {
@@ -52,6 +58,12 @@ module.exports = function(grunt){
           import: 2
         },
         src: ['css/*.css']
+      }
+    },
+    lint5: {
+      views: '',
+      templates: {
+        'index.html': null
       }
     }
   });
