@@ -7,12 +7,11 @@ module.exports = function(grunt){
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     watch: {
-      sass: {
+      html: {
         files: [
-          'sass/*.sass',
-          'sass/*.scss'
+          '*.html'
         ],
-        tasks: ['compass']
+        tasks: ['lint5']
       },
       css: {
         files: [
@@ -20,18 +19,36 @@ module.exports = function(grunt){
         ],
         tasks: ['csslint']
       },
+      sass: {
+        files: [
+          'sass/*.sass',
+          'sass/*.scss'
+        ],
+        tasks: ['compass']
+      },
       js: {
         files: [
           'js/*.js',
           'Gruntfile.js'
         ],
         tasks: ['jshint']
+      }
+    },
+    lint5: {
+      views: '',
+      templates: {
+        'index.html': null
+      }
+    },
+    csslint: {
+      options: {
+        csslintrc: '.csslintrc'
       },
-      html: {
-        files: [
-          '*.html'
-        ],
-        tasks: ['lint5']
+      strict: {
+        options: {
+          import: 2
+        },
+        src: ['css/*.css']
       }
     },
     compass: {
@@ -48,23 +65,6 @@ module.exports = function(grunt){
         jshintrc: '.jshintrc'
       },
       all: ['Gruntfile.js', 'js/*.js']
-    },
-    csslint: {
-      options: {
-        csslintrc: '.csslintrc'
-      },
-      strict: {
-        options: {
-          import: 2
-        },
-        src: ['css/*.css']
-      }
-    },
-    lint5: {
-      views: '',
-      templates: {
-        'index.html': null
-      }
     }
   });
 
