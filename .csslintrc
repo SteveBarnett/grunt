@@ -24,7 +24,7 @@
   "qualified-headings": true,
   "regex-selectors": true,
   "rules-count": true,
-  "selector-max": true
+  "selector-max": true,
   "selector-max-approaching": true,
   "shorthand": true,
   "star-property-hack": true,
@@ -34,5 +34,5 @@
   "universal-selector": true,
   "unqualified-attributes": false,
   "vendor-prefix": true,
-  "zero-units": true,
+  "zero-units": true
 }
