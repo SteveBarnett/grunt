@@ -11,6 +11,7 @@
     "grunt-contrib-csslint": "~0.2.0",
     "grunt-contrib-compass": "~0.6.0",
     "grunt-contrib-jshint": "~0.7.2",
-    "jshint-stylish": "~0.1.4"
+    "jshint-stylish": "~0.1.4",
+    "grunt-browser-sync": "~0.4.6"
   }
 }

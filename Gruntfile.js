@@ -66,9 +66,32 @@ module.exports = function(grunt){
         reporter: require('jshint-stylish')
       },
       all: ['Gruntfile.js', 'js/*.js']
+    },
+    browser_sync: {
+      bsFiles: {
+        src : [
+          'css/*.css',
+          'img/*.jpg',
+          'img/*.png',
+          'img/*.gif',
+          'js/*.js',
+          '*.php',
+          '*.html'
+        ]
+      },
+      options: {
+        watchTask: true,
+        server: {
+          baseDir: ''
+        }
+        // proxy: {
+        //   host: "local.dev",
+        //   port: 8001
+        // }
+      }
     }
   });
 
-  grunt.registerTask('default', ['watch']);
+  grunt.registerTask('default', ['browser_sync', 'watch']);
 
 };
