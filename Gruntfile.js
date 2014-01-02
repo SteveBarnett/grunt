@@ -11,27 +11,27 @@ module.exports = function(grunt){
         files: [
           '*.html'
         ],
-        tasks: ['lint5']
+        tasks: ['newer:lint5']
       },
       css: {
         files: [
           'css/*.css'
         ],
-        tasks: ['csslint']
+        tasks: ['newer:csslint']
       },
       sass: {
         files: [
           'sass/*.sass',
           'sass/*.scss'
         ],
-        tasks: ['compass']
+        tasks: ['newer:compass']
       },
       js: {
         files: [
           'js/*.js',
           'Gruntfile.js'
         ],
-        tasks: ['jshint']
+        tasks: ['newer:jshint']
       }
     },
     lint5: {
@@ -88,6 +88,16 @@ module.exports = function(grunt){
         //   host: "local.dev",
         //   port: 8001
         // }
+      }
+    },
+    imagemin: {
+      dynamic: {
+        files: [{
+          expand: true,
+          cwd: 'src',
+          src: ['**/*.{png,jpg,jpeg,gif}'],
+          dest: 'img'
+        }]
       }
     }
   });
