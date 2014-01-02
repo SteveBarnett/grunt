@@ -33,9 +33,15 @@ module.exports = function(grunt){
         ],
         tasks: ['jshint']
       },
-      img: {
+      imgResp: {
         files: [
-          'src/*.{png,jpg,jpeg,gif}'
+          'img/src/*.{png,jpg,jpeg,gif}'
+        ],
+        tasks: ['responsive_images']
+      },
+      imgComp: {
+        files: [
+          'img/resp/*.{png,jpg,jpeg,gif}'
         ],
         tasks: ['imagemin']
       }
@@ -96,11 +102,38 @@ module.exports = function(grunt){
         // }
       }
     },
+    responsive_images: {
+      dev: {
+        options: {
+          sizes: [
+            {
+              width: 320
+            },
+            {
+              width: 640
+            },
+            {
+              width: 1024
+            },
+            {
+              width: 1024,
+              suffix: '_x2'
+            }
+          ]
+        },
+        files: [{
+          expand: true,
+          cwd: 'img/src',
+          src: ['*.{png,jpg,jpeg,gif}'],
+          dest: 'img/resp'
+        }]
+      }
+    },
     imagemin: {
       dynamic: {
         files: [{
           expand: true,
-          cwd: 'src',
+          cwd: 'img/resp',
           src: ['**/*.{png,jpg,jpeg,gif}'],
           dest: 'img'
         }]
@@ -108,6 +141,6 @@ module.exports = function(grunt){
     }
   });
 
-  grunt.registerTask('default', ['browser_sync', 'watch']);
+  grunt.registerTask('default', ['browser_sync', 'watch', 'responsive_images', 'imagemin']);
 
 };
