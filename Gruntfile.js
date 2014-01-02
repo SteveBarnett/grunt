@@ -11,27 +11,33 @@ module.exports = function(grunt){
         files: [
           '*.html'
         ],
-        tasks: ['newer:lint5']
+        tasks: ['lint5']
       },
       css: {
         files: [
           'css/*.css'
         ],
-        tasks: ['newer:csslint']
+        tasks: ['csslint']
       },
       sass: {
         files: [
           'sass/*.sass',
           'sass/*.scss'
         ],
-        tasks: ['newer:compass']
+        tasks: ['compass']
       },
       js: {
         files: [
           'js/*.js',
           'Gruntfile.js'
         ],
-        tasks: ['newer:jshint']
+        tasks: ['jshint']
+      },
+      img: {
+        files: [
+          'src/*.{png,jpg,jpeg,gif}'
+        ],
+        tasks: ['imagemin']
       }
     },
     lint5: {
