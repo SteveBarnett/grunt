@@ -77,12 +77,19 @@ module.exports = function(grunt){
         jshintrc: '.jshintrc',
         reporter: require('jshint-stylish')
       },
-      all: ['Gruntfile.js', 'js/*.js']
+      all: ['Gruntfile.js', 'js/src/*.js']
     },
     jasmine : {
-      src : 'js/*.js',
+      src : 'js/src/*.js',
       options : {
         specs : 'js/spec/*.js'
+      }
+    },
+    uglify: {
+      target: {
+        files: {
+          'js/main.min.js': ['js/src/main.js', 'js/src/plugins.js']
+        }
       }
     },
     browser_sync: {
@@ -147,6 +154,6 @@ module.exports = function(grunt){
     }
   });
 
-  grunt.registerTask('default', ['browser_sync', 'watch', 'responsive_images', 'imagemin', 'jasmine']);
+  grunt.registerTask('default', ['browser_sync', 'watch', 'responsive_images', 'imagemin', 'jasmine', 'uglify']);
 
 };
