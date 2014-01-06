@@ -79,6 +79,12 @@ module.exports = function(grunt){
       },
       all: ['Gruntfile.js', 'js/*.js']
     },
+    jasmine : {
+      src : 'js/*.js',
+      options : {
+        specs : 'js/spec/*.js'
+      }
+    },
     browser_sync: {
       bsFiles: {
         src : [
@@ -141,6 +147,6 @@ module.exports = function(grunt){
     }
   });
 
-  grunt.registerTask('default', ['browser_sync', 'watch', 'responsive_images', 'imagemin']);
+  grunt.registerTask('default', ['browser_sync', 'watch', 'responsive_images', 'imagemin', 'jasmine']);
 
 };
