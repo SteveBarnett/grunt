@@ -24,7 +24,7 @@ module.exports = function(grunt){
           'sass/*.sass',
           'sass/*.scss'
         ],
-        tasks: ['compass']
+        tasks: ['sass']
       },
       js: {
         files: [
@@ -63,7 +63,7 @@ module.exports = function(grunt){
         src: ['css/*.css']
       }
     },
-    compass: {
+    sass: {
       dist: {
         options: {
           sassDir: 'sass',
@@ -75,7 +75,6 @@ module.exports = function(grunt){
     jshint: {
       options: {
         jshintrc: '.jshintrc',
-        reporter: require('jshint-stylish')
       },
       all: ['Gruntfile.js', 'js/src/*.js']
     },
