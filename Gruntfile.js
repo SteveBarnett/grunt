@@ -19,12 +19,11 @@ module.exports = function(grunt){
         ],
         tasks: ['csslint']
       },
-      sass: {
+      less: {
         files: [
-          'sass/*.sass',
-          'sass/*.scss'
+          'less/main.less'
         ],
-        tasks: ['sass']
+        tasks: ['less']
       },
       js: {
         files: [
@@ -63,12 +62,13 @@ module.exports = function(grunt){
         src: ['css/*.css']
       }
     },
-    sass: {
-      dist: {
+    less: {
+      dev: {
         options: {
-          sassDir: 'sass',
-          cssDir: 'css',
-          outputStyle: 'compressed'
+          paths: ['css']
+        },
+        files: {
+          'css/main.css': 'less/main.less'
         }
       }
     },
