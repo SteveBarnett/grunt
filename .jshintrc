@@ -24,5 +24,6 @@
   "jquery": true,
   "node": true,
   "phantom": true,
-  "worker": true
+  "worker": true,
+  "predef": [ "Modernizr" ]
 }
